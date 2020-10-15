@@ -1,0 +1,37 @@
+{
+    "name": "ravisdo/discordphp-bot-example",
+    "type": "project",
+    "description": "An example how to use DiscordPHP with support for MySQL",
+    "keywords": [
+        "discord",
+        "php",
+        "example",
+        "bot"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "doctrine/dbal": "^2.11",
+        "illuminate/database": "^8.10",
+        "robmorgan/phinx": "^0.12.4",
+        "team-reflex/discord-php": "dev-master",
+        "vlucas/phpdotenv": "^5.2"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Ravisdo\\Bot\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "flyeralarm/php-code-validator": "^3.2"
+    }
+}

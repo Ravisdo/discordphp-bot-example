@@ -1,0 +1,26 @@
+version: "3"
+services:
+  discordphp-bot-example_php:
+    image: 7.4:alpine
+    volumes:
+      - ./:/var/www/:delegated
+      - ~/.composer/docker-cache/:/root/.composer:cached
+    container_name: discordphp-bot-example_php
+  discordphp-bot-example_mysql:
+    image: mariadb:latest
+    volumes:
+      - discordphp-bot-example_mysqldata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=bot_db"
+      - "MYSQL_USER=user"
+      - "MYSQL_PASSWORD=secret"
+    container_name: discordphp-bot-example_mysql
+  discordphp-bot-example_phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=discordphp-bot-example_mysql
+    container_name: discordphp-bot-example_phpmyadmin
+volumes:
+  discordphp-bot-example_mysqldata:
